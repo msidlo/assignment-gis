@@ -1,0 +1,10 @@
+default: &default
+  adapter: postgis
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: pdt_project_development
+  user: postgres
+  password: postgres
