@@ -46,17 +46,34 @@ body {
   100% { -webkit-transform: rotate(360deg); }
 }
 
+#regions{
+  background-color: #ECF3F6;
+  width: auto!important;
+}
+
+.slider-handle{
+  background-image: linear-gradient(to bottom, #cccccc 0%, $primary_light_color 100%)!important;
+}
+
 .container{
   padding: 6em 0 0 3em;
 }
 
-.col-md-3{
+.col-md-3, .col-md-1{
   border: 2px solid $primary_light_color;
   border-radius: 0.7em;
   padding: 1.5em;
   background-color: $primary_color;
   color: $primary_light_color;
-  z-index: 98
+  z-index: 98;
+}
+
+.col-md-1{
+  width:auto!important;
+}
+
+.fa{
+  cursor: pointer;
 }
 
 .button{
@@ -68,4 +85,5 @@ body {
   padding: 0.5em;
   display: inline-block;
   font-weight: bolder;
+  margin: 0.4em 0 0.4em 0;
 }

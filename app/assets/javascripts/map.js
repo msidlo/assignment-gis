@@ -7,15 +7,18 @@ $(document).on('turbolinks:load', function() {
     L.mapbox.accessToken = mapbox_acces_token;
 
     var map = L.mapbox.map('map', 'mapbox.streets').setView([48.805864, 19.093416], 8);
+    var featureLayer = L.mapbox.featureLayer().addTo(map);
 
-    $('#tn').on('click', function () {
+    $('#districts_population').on('click', function () {
         $('#server_communication').show();
+        var params = {};
+        params["regions"] = $('#regions option:selected').text();
+        params["population"] = $('#population_number').slider('getValue');
         $.ajax({
             type: 'POST',
-            url: "/map",
-            data: "wueeeeeej",
+            url: "/map/pop_district",
+            data: params,
             success: function (result) {
-                console.log(result);
                 geojson = [{
                     "type": "Feature",
                     "geometry": result,
@@ -26,7 +29,8 @@ $(document).on('turbolinks:load', function() {
                         "stroke-width": 1
                     }
                 }];
-                L.geoJson(geojson, {style: L.mapbox.simplestyle.style}).addTo(map);
+                featureLayer.setGeoJSON(geojson);
+                //L.geoJson(geojson, {style: L.mapbox.simplestyle.style}).addTo(map);
                 $('#server_communication').hide();
             },
             error: function (result) {
@@ -35,5 +39,26 @@ $(document).on('turbolinks:load', function() {
             }
         });
     });
+
+    //$('#population_number').slider('getValue');
+    $('#population_number').slider({
+        formatter: function(value) {
+            return + value;
+        }
+    });
+
+
+    //toggling the menu
+    $('#show_menu').on('click',function () {
+        // $("#menu_placeholder").hide();
+        // $('#menu').show();
+        $("#menu_placeholder").toggle();
+        $('#menu').toggle();
+    });
+    $('#hide_menu').on('click',function () {
+        $('#menu').toggle();
+        $("#menu_placeholder").toggle();
+    });
+
 
 });

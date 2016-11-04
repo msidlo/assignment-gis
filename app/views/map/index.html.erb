@@ -6,10 +6,35 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      <label>Trenčiansky kraj</label><br>
-      <div class="button" id="tn">Tn kraj
-      </div>
+    <div class="col-md-3" id="menu">
+
+      <label>Vyhľadávať pre</label>
+      <select class="form-control" id="regions">
+        <option>Všetky kraje SR</option>
+        <option>Bratislavský kraj</option>
+        <option>Trnavský kraj</option>
+        <option>Trenčiansky kraj</option>
+        <option>Nitriansky kraj</option>
+        <option>Žilinský kraj</option>
+        <option>Banskobystrický kraj</option>
+        <option>Prešovský kraj</option>
+        <option>Košický kraj</option>
+      </select>
+
+      <br>
+      <label>Počet obyvateľov</label>
+      <input id="population_number" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="200000" data-slider-step="500" data-slider-value="30000"/>
+
+      <div class="button" id="districts_population">Okresy</div>
+
+
+
+      <i class="fa fa-angle-double-up fa-2x" aria-hidden="true" style="float: right;" id="hide_menu" title="zmenšiť"></i>
+    </div>
+
+
+    <div class="col-md-1" style="display: none" id="menu_placeholder">
+      <i class="fa fa-bars fa-2x" aria-hidden="true" id="show_menu" title="rozbaliť"></i>
     </div>
   </div>
 </div>

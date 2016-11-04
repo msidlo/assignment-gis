@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'activerecord-postgis-adapter'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
+gem 'bootstrap-slider-rails'
+gem 'font-awesome-sass'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
