@@ -1,5 +1,5 @@
 class MapController < ApplicationController
-
+  # data source http://statdat.statistics.sk/
   def index
 
   end
@@ -27,6 +27,33 @@ class MapController < ApplicationController
     end
 
   end
+
+
+  def wage_in_regions
+
+    connection = ActiveRecord::Base.connection
+    @query = "with area as(
+                  select way from regions where name = '#{params[:regions]}'
+              ), wage as (
+                    select d.way, d.name from data
+                    join districts d on d.id = data.imageable_id
+                    where description = 'mzda' and value >= '#{params[:wage]}' and year = '#{params[:year]}'
+                    and ST_Contains((select * from area),d.way)
+              ), unemployment as (
+                    select d.way, d.name from data
+                    join districts d on d.id = data.imageable_id
+                    where description = 'nezamestnanost' and value < '#{params[:unemployment]}' and year = '#{params[:year]}'
+                    and ST_Contains((select * from area),d.way)
+              )
+              select ST_AsGeoJSON(ST_Union(u.way)) as result from unemployment u, wage w
+              where (w.name = u.name) or ST_Touches(u.way,w.way)"
+    @res = connection.exec_query(@query)
+    respond_to do |format|
+      format.json { render json: @res[0]["result"] }
+    end
+
+  end
+
 
   def region
 

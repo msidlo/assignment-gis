@@ -1,9 +1,80 @@
-Region,2011,2012,2013,2014,2015
-Bratislavský kraj,1192,1225,1273,1373.99,1346.69
-Trnavský kraj,830,900,905,944.09,975.53
-Trenčiansky kraj,756,779,849,868.79,911.36
-Nitriansky kraj,706,750,759,813.97,841.7
-Žilinský kraj,794,845,862,899.64,951.66
-Banskobystrický kraj,735,745,754,776.73,806.35
-Prešovský kraj,636,642,657,720.32,721.3
-Košický kraj,878,870,877,937.4,953.65
+District,2011,2012,2013,2014,2015
+okres Bratislava I,1211,1247,1237,1334,1375
+okres Bratislava II,1224,1260,1316,1422,1446
+okres Bratislava III,1157,1194,1130,1252,1314
+okres Bratislava IV,1074,1096,1212,1320,1359
+okres Bratislava V,1041,1070,1105,1222,1248
+okres Malacky,973,995,994,1076,1060
+okres Pezinok,726,746,760,820,828
+okres Senec,829,866,868,944,973
+okres Dunajská Streda,706,722,725,768,801
+okres Galanta,739,739,735,769,804
+okres Hlohovec,878,889,815,887,916
+okres Piešťany,739,750,800,841,878
+okres Senica,739,766,778,819,857
+okres Skalica,845,853,895,960,1037
+okres Trnava,934,957,964,1036,1070
+okres Bánovce nad Bebravou,697,718,738,785,816
+okres Ilava,803,814,810,872,893
+okres Myjava,700,729,724,773,837
+okres Nové Mesto nad Váhom,792,819,856,909,944
+okres Partizánske,693,722,716,775,821
+okres Považská Bystrica,732,760,770,841,888
+okres Prievidza,770,788,814,848,890
+okres Púchov,778,796,844,892,944
+okres Trenčín,823,853,836,906,935
+okres Komárno,636,659,702,751,787
+okres Levice,818,858,873,909,915
+okres Nitra,822,850,828,880,907
+okres Nové Zámky,676,713,690,753,775
+okres Šaľa,856,869,815,868,925
+okres Topoľčany,693,725,726,758,801
+okres Zlaté Moravce,675,707,734,778,790
+okres Bytča,735,704,708,762,829
+okres Čadca,651,670,676,708,747
+okres Dolný Kubín,706,742,787,828,876
+okres Kysucké Nové Mesto,861,881,921,1004,1076
+okres Liptovský Mikuláš,754,767,729,776,797
+okres Martin,844,875,861,935,994
+okres Námestovo,632,665,674,706,716
+okres Ružomberok,855,895,873,915,957
+okres Turčianske Teplice,665,686,681,706,735
+okres Tvrdošín,673,696,738,774,804
+okres Žilina,873,910,888,951,991
+okres Banská Bystrica,831,868,867,941,957
+okres Banská Štiavnica,792,790,678,714,732
+okres Brezno,718,729,746,800,820
+okres Detva,779,795,785,839,875
+okres Krupina,624,658,651,694,695
+okres Lučenec,663,685,699,733,770
+okres Poltár,607,634,653,679,713
+okres Revúca,715,734,720,764,770
+okres Rimavská Sobota,594,616,631,673,684
+okres Veľký Krtíš,618,617,640,697,707
+okres Zvolen,841,870,853,921,963
+okres Žarnovica,839,851,823,873,880
+okres Žiar nad Hronom,758,797,798,830,876
+okres Bardejov,580,604,597,614,636
+okres Humenné,672,700,689,725,763
+okres Kežmarok,620,635,648,680,678
+okres Levoča,740,735,718,759,781
+okres Medzilaborce,639,659,676,715,732
+okres Poprad,755,790,782,835,888
+okres Prešov,767,774,785,847,875
+okres Sabinov,669,678,687,736,791
+okres Snina,598,626,648,675,702
+okres Stará Ľubovňa,651,670,709,759,793
+okres Stropkov,630,645,640,680,722
+okres Svidník,637,682,719,738,733
+okres Vranov nad Topľou,638,649,660,707,737
+okres Gelnica,598,620,670,691,699
+okres Košice I,871,895,900,955,998
+okres Košice II,1000,1016,1026,1115,1176
+okres Košice III,624,645,710,750,810
+okres Košice IV,908,931,948,982,1025
+okres Košice - okolie,775,801,762,819,862
+okres Michalovce,726,742,784,824,844
+okres Rožňava,802,818,796,847,867
+okres Sobrance,747,779,749,792,819
+okres Spišská Nová Ves,726,752,746,799,812
+okres Trebišov,919,754,700,737,760

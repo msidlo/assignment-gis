@@ -13,6 +13,7 @@ $(document).on('turbolinks:load', function() {
         $('#server_communication').show();
         var params = {};
         params["regions"] = $('#regions option:selected').text();
+        params["year"] = $('#year option:selected').text();
         params["population"] = $('#population_number').slider('getValue');
         $.ajax({
             type: 'POST',
@@ -40,9 +41,55 @@ $(document).on('turbolinks:load', function() {
         });
     });
 
+    $('#wage_unemployment').on('click', function () {
+        $('#server_communication').show();
+        var params = {};
+        params["regions"] = $('#regions option:selected').text();
+        params["year"] = $('#year option:selected').text();
+        params["wage"] = $('#min_wage').slider('getValue');
+        params["unemployment"] = $('#unemployment').slider('getValue');
+        $.ajax({
+            type: 'POST',
+            url: "/map/wage_in_regions",
+            data: params,
+            success: function (result) {
+                geojson = [{
+                    "type": "Feature",
+                    "geometry": result,
+                    "properties": {
+                        "stroke": "#0000cc",
+                        "fill": "#8282cc",
+                        "fill-opacity": 0.2,
+                        "stroke-width": 1
+                    }
+                }];
+                featureLayer.setGeoJSON(geojson);
+                //L.geoJson(geojson, {style: L.mapbox.simplestyle.style}).addTo(map);
+                $('#server_communication').hide();
+            },
+            error: function (result) {
+                alert('Nastala chyba v komunikacii so serverom');
+                $('#server_communication').hide();
+            }
+        });
+    });
+
     //$('#population_number').slider('getValue');
     $('#population_number').slider({
         formatter: function(value) {
+            $('#pop_value').text(value);
+            return + value;
+        }
+    });
+    $('#min_wage').slider({
+        formatter: function(value) {
+            $('#wage_value').text(value + " €");
+            return + value;
+        }
+    });
+    $('#unemployment').slider({
+        formatter: function(value) {
+            $('#unemployment_value').text(value + " %");
             return + value;
         }
     });

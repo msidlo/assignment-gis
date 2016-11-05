@@ -17,6 +17,12 @@ body {
   z-index: 0;
 }
 
+#hide_menu{
+  position: absolute;
+  bottom: 0.2em;
+  right: 0.3em;
+}
+
 #loading{
   position: absolute;
   z-index: 100;
@@ -46,9 +52,20 @@ body {
   100% { -webkit-transform: rotate(360deg); }
 }
 
-#regions{
-  background-color: #ECF3F6;
+.my_dropdown{
+  background-color: #ECF3F6!important;
   width: auto!important;
+  color: $primary_color!important;
+}
+
+.line{
+  margin: 0.8em;
+  border-top: 1px solid $primary_light_color;
+}
+
+.label_value{
+  margin-left: 0.6em;
+  font-size: 0.8em;
 }
 
 .slider-handle{
@@ -85,5 +102,6 @@ body {
   padding: 0.5em;
   display: inline-block;
   font-weight: bolder;
-  margin: 0.4em 0 0.4em 0;
+  font-size: 0.8em;
+  margin: 0.4em 0.4em 0.4em 0;
 }
