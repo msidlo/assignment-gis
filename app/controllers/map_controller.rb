@@ -55,15 +55,31 @@ class MapController < ApplicationController
   end
 
 
-  def region
+  def deaths_hospitals
 
     connection = ActiveRecord::Base.connection
-    @query = "select ST_AsGeoJSON(ST_Transform(way,4326)) as region from planet_osm_polygon
-              where name = 'Trenčiansky kraj'"
+    @query = "with region as(
+                SELECT way from regions
+                WHERE name = '#{params[:regions]}'
+              ), areas as (
+                select d.name, d.way, dat.value from districts d
+                join data dat on dat.imageable_id = d.id
+                where dat.description = 'umrtia'
+                and dat.value <= '#{params[:deaths_rate]}'
+                and year = '#{params[:year]}'
+                and ST_Contains((select * from region),d.way)
+              ), hospitals as(
+                select name, ST_Transform(way,4326) as way from planet_osm_point
+                where amenity = 'hospital'
+              )
+              select ST_AsGeoJSON(a.way) as geom, a.value, round((max(ST_MaxDistance(ST_ExteriorRing(a.way),h.way)*111.195))::numeric,2) as max
+              from areas a
+              join hospitals h on ST_Contains(a.way,h.way)
+              group by geom, a.value"
     @res = connection.exec_query(@query)
 
     respond_to do |format|
-      format.json { render json: @res[0]["region"] }
+      format.json { render json: @res.to_a }
     end
 
   end

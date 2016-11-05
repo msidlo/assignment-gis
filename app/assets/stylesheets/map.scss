@@ -6,24 +6,25 @@ $primary_color: #209b8a;
 $primary_light_color: #ECF3F6;
 
 body {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
-#map{
-  position:absolute; top:0;
-  bottom:0;
-  width:100%;
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
   z-index: 0;
 }
 
-#hide_menu{
+#hide_menu {
   position: absolute;
   bottom: 0.2em;
   right: 0.3em;
 }
 
-#loading{
+#loading {
   position: absolute;
   z-index: 100;
   opacity: 0.6;
@@ -47,36 +48,41 @@ body {
   animation: spin 1s linear infinite;
   z-index: 101;
 }
+
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
-.my_dropdown{
-  background-color: #ECF3F6!important;
-  width: auto!important;
-  color: $primary_color!important;
+.my_dropdown {
+  background-color: #ECF3F6 !important;
+  width: auto !important;
+  color: $primary_color !important;
 }
 
-.line{
+.line {
   margin: 0.8em;
   border-top: 1px solid $primary_light_color;
 }
 
-.label_value{
+.label_value {
   margin-left: 0.6em;
   font-size: 0.8em;
 }
 
-.slider-handle{
-  background-image: linear-gradient(to bottom, #cccccc 0%, $primary_light_color 100%)!important;
+.slider-handle {
+  background-image: linear-gradient(to bottom, #cccccc 0%, $primary_light_color 100%) !important;
 }
 
-.container{
+.container {
   padding: 6em 0 0 3em;
 }
 
-.col-md-3, .col-md-1{
+.col-md-3, .col-md-1 {
   border: 2px solid $primary_light_color;
   border-radius: 0.7em;
   padding: 1.5em;
@@ -85,15 +91,15 @@ body {
   z-index: 98;
 }
 
-.col-md-1{
-  width:auto!important;
+.col-md-1 {
+  width: auto !important;
 }
 
-.fa{
+.fa {
   cursor: pointer;
 }
 
-.button{
+.button {
   background: $primary_light_color;
   color: $primary_color;
   cursor: pointer;
