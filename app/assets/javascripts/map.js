@@ -50,7 +50,7 @@ $(document).on('turbolinks:load', function() {
         params["unemployment"] = $('#unemployment').slider('getValue');
         $.ajax({
             type: 'POST',
-            url: "/map/wage_in_regions",
+            url: "/map/wage_in_districts",
             data: params,
             success: function (result) {
                 geojson = [{

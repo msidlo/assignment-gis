@@ -29,7 +29,7 @@ class MapController < ApplicationController
   end
 
 
-  def wage_in_regions
+  def wage_in_districts
 
     connection = ActiveRecord::Base.connection
     @query = "with area as(
