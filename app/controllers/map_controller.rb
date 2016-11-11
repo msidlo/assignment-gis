@@ -65,7 +65,7 @@ class MapController < ApplicationController
                 select d.name, d.way, dat.value from districts d
                 join data dat on dat.imageable_id = d.id
                 where dat.description = 'umrtia'
-                and dat.value <= '#{params[:deaths_rate]}'
+                and (dat.value >= '#{params[:deaths_rate][0]}' and dat.value <= '#{params[:deaths_rate][1]}')
                 and year = '#{params[:year]}'
                 and ST_Contains((select * from region),d.way)
               ), hospitals as(
@@ -74,7 +74,7 @@ class MapController < ApplicationController
               )
               select ST_AsGeoJSON(a.way) as geom, a.value, round((max(ST_MaxDistance(ST_ExteriorRing(a.way),h.way)*111.195))::numeric,2) as max
               from areas a
-              join hospitals h on ST_Contains(a.way,h.way)
+              left join hospitals h on ST_Contains(a.way,h.way)
               group by geom, a.value"
     @res = connection.exec_query(@query)
 

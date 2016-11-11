@@ -50,10 +50,10 @@
 
       <div class="line"></div>
 
-      <label>Počet úmrtí v okrese</label>
-      <input id="deaths_rate" data-slider-id='ex1Slider' type="text" data-slider-min="100" data-slider-max="1700" data-slider-step="5" data-slider-value="300"/>
-      <i class="fa fa-question-circle" aria-hidden="true" title="Vyhľadávanie okresov s úmrtnosťou menšou alebo rovnakou ako je zadané. Po kliknutí na oblasť je zobrazená najväčšia vzdialenosť k nemocnici v rámci okresu a počet zahynutých osôb"></i>
+      <label id="deaths_value_range">Počet úmrtí v okrese 300:900</label>
+      <input id="deaths_rate" data-slider-id='ex1Slider' type="text" data-slider-min="100" data-slider-max="1750" data-slider-step="5" data-slider-value="[300,900]"/>
       <div class="button" id="deaths">Úmrtia v okresoch</div>
+      <i class="fa fa-question-circle" aria-hidden="true" title="Vyhľadávanie okresov s úmrtnosťou menšou alebo rovnakou ako je zadané. Po kliknutí na oblasť je zobrazená najväčšia vzdialenosť k nemocnici v rámci okresu a počet zahynutých osôb"></i>
 
       <i class="fa fa-angle-double-up fa-2x" aria-hidden="true" id="hide_menu" title="zmenšiť"></i>
     </div>

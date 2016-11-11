@@ -65,8 +65,14 @@ $(document).on('turbolinks:load', function () {
             success: function (result) {
                 geojsons = [];
                 result.forEach(function (g) {
+                    var distance;
+                    if( g["max"] == null){
+                        distance = 'nenašla sa žiadna nemocnica.'
+                    }else{
+                        distance =  g["max"] + " km.";
+                    }
                     geojsons.push(get_geojson(JSON.parse(g["geom"]),
-                        "Najvzdialenejší bod od nemocnici: " + g["max"] + " km\nPočet zachynutých osob: " + g["value"]));
+                        "Najvzdialenejší bod od nemocnici: " + distance + "\nPočet zachynutých osob: " + g["value"]));
                 });
                 featureLayer.setGeoJSON({
                     type: "FeatureCollection",
@@ -92,20 +98,18 @@ $(document).on('turbolinks:load', function () {
     $('#min_wage').slider({
         formatter: function (value) {
             $('#wage_value').text(value + " €");
-            return +value;
+            return value;
         }
     });
     $('#unemployment').slider({
         formatter: function (value) {
             $('#unemployment_value').text(value + " %");
-            return +value;
+            return value;
         }
     });
-    $('#deaths_rate').slider({
-        formatter: function (value) {
-            $('#unemployment_value').text(value);
-            return +value;
-        }
+    $('#deaths_rate').slider({});
+    $('#deaths_rate').on('change',function () {
+        $('#deaths_value_range').text("Počet úmrtí v okrese "+ $('#deaths_rate').slider('getValue').join(":"));
     });
 
 
