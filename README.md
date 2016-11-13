@@ -32,5 +32,5 @@ GIS functions used:
   * [ST_Transform](http://postgis.net/docs/ST_Transform.html)
 
 
-<sub><sub><sub><sub>Note:
-Model for this project can be done better (in order to use more GIS function, it's done like it is)<sub><sub><sub>
+<sub><sub>Note:
+Model for this project can be done better (in order to use more GIS function, it's done like it is)<sub><sub>
