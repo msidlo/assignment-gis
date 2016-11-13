@@ -1,0 +1,69 @@
+<div id="server_communication" style="display: none">
+  <div id="loading_circle"></div>
+  <div id="loading"></div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" id="menu">
+
+      <label>Vyhľadávať pre</label>
+      <select class="form-control my_dropdown" id="regions">
+        <option>Všetky kraje SR</option>
+        <option>Bratislavský kraj</option>
+        <option>Trnavský kraj</option>
+        <option>Trenčiansky kraj</option>
+        <option>Nitriansky kraj</option>
+        <option>Žilinský kraj</option>
+        <option>Banskobystrický kraj</option>
+        <option>Prešovský kraj</option>
+        <option>Košický kraj</option>
+      </select>
+
+      <label>Rok</label>
+      <select class="form-control my_dropdown" id="year">
+        <option>2015</option>
+        <option>2014</option>
+        <option>2013</option>
+        <option>2012</option>
+        <option>2011</option>
+      </select>
+
+      <div class="line"></div>
+
+      <label>Počet obyvateľov</label>
+      <input id="population_number" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="200000" data-slider-step="500" data-slider-value="90000"/>
+      <span id="pop_value" class="label_value"></span><br>
+      <div class="button" id="districts_population">Okresy podľa obyvyteľov</div>
+
+      <div class="line"></div>
+
+      <label>Mzda v okrese</label>
+      <input id="min_wage" data-slider-id='ex1Slider' type="text" data-slider-min="636" data-slider-max="1500" data-slider-step="10" data-slider-value="850"/>
+      <span id="wage_value" class="label_value"></span>
+
+      <label>Nezamestnanosť v %</label>
+      <input id="unemployment" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="40" data-slider-step="0.2" data-slider-value="8"/>
+      <span id="unemployment_value" class="label_value"></span><br>
+      <div class="button" id="wage_unemployment">Okresy podľa mzdy a nezamestnanosti</div>
+      <i class="fa fa-question-circle" aria-hidden="true" title="Vyhľadať a zobraziť okresy, v ktorých je nezamestannosť nižšia ako zadaná hodnota a minimálna priemerná mzda väčšia alebo rovná ako vybraná hodnota, pričom sa zobrazia aj okresy, ktoré majú nízku nezamestnanosť a susedia s okresom s väčšou mzdou"></i>
+
+      <div class="line"></div>
+
+      <label id="deaths_value_range">Počet úmrtí v okrese 300:900</label>
+      <input id="deaths_rate" data-slider-id='ex1Slider' type="text" data-slider-min="100" data-slider-max="1750" data-slider-step="5" data-slider-value="[300,900]"/>
+      <div class="button" id="deaths">Úmrtia v okresoch</div>
+      <i class="fa fa-question-circle" aria-hidden="true" title="Vyhľadávanie okresov s úmrtnosťou menšou alebo rovnakou ako je zadané. Po kliknutí na oblasť je zobrazená najväčšia vzdialenosť k nemocnici v rámci okresu a počet zahynutých osôb"></i>
+
+      <i class="fa fa-angle-double-up fa-2x" aria-hidden="true" id="hide_menu" title="zmenšiť"></i>
+    </div>
+
+
+    <div class="col-md-1" style="display: none; padding:0.5em" id="menu_placeholder">
+      <i class="fa fa-bars fa-1x" aria-hidden="true" id="show_menu" title="rozbaliť"></i>
+    </div>
+  </div>
+</div>
+
+<div id='map'></div>
+

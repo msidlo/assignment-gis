@@ -1,27 +1,36 @@
-# General course assignment
+# PDT
+School project for database class, which display population, unemployment and average wage, deaths rate and hospitals in districts in Slovak republic (2011-2015).
 
-Build a map-based application, which lets the user see geo-based data on a map and filter/search through it in a meaningfull way. Specify the details and build it in your language of choice. The application should have 3 components:
+![Preview](https://github.com/msidlo/pdt/tree/master/public/preview.png)
 
-1. Custom-styled background map, ideally built with [mapbox](http://mapbox.com). Hard-core mode: you can also serve the map tiles yourself using [mapnik](http://mapnik.org/) or similar tool.
-2. Local server with [PostGIS](http://postgis.net/) and an API layer that exposes data in a [geojson format](http://geojson.org/).
-3. The user-facing application (web, android, ios, your choice..) which calls the API and lets the user see and navigate in the map and shows the geodata. You can (and should) use existing components, such as the Mapbox SDK, or [Leaflet](http://leafletjs.com/).
+<sub><sub>(each option can be executed within regions or whole country, years 2011-2015, population is only 2015)<sub>:<sub>
 
-## Example projects
+3 options:
 
-- Showing nearby landmarks as colored circles, each type of landmark has different circle color and the more interesting the landmark is, the bigger the circle. Landmarks are sorted in a sidebar by distance to the user. It is possible to filter only certain landmark types (e.g., castles).
+1. show districts with population higher then set by the user
+2. show districts with unemployment less then set by the user and average wage higher then set by the user or at least region next to it has higher average wage
+3. show districts with number of deaths in range set by the user and on click, show maximum air distance from hospitals to the edge of district
+ 
+#Data source and how to import it
+  * download and import geo data about [Slovakia](http://download.geofabrik.de/europe/slovakia-latest.osm.pbf) to database
+      * `osm2pgsql --create --database pdt_project_development slovakia-latest.osm.pbf`
+  * run `rails import_data` to import statistic data about regions and districts in Slovakia - data source [STATdat.](http://statdat.statistics.sk/)
 
-- Showing bicykle roads on a map. The roads are color-coded based on the road difficulty. The user can see various lists which help her choose an appropriate road, e.g. roads that cross a river, roads that are nearby lakes, roads that pass through multiple countries, etc.
+#Technology
+* Rails version: 5.0.0.1
+* ruby version: 2.3.1
+* PostgreSQL 9.3.15
+* PostGis 2.2
 
-## Data sources
+GIS functions used:
+  * [ST_Contains](http://postgis.net/docs/manual-1.4/ST_Contains.html)
+  * [ST_Union](http://postgis.net/docs/ST_Union.html)
+  * [ST_Touches](http://postgis.net/docs/ST_Touches.html)
+  * [ST_ExteriorRing](http://postgis.net/docs/ST_ExteriorRing.html)
+  * [ST_MaxDistance](http://postgis.net/docs/ST_MaxDistance.html)
+  * [ST_AsGeoJSON](http://postgis.net/docs/manual-dev/ST_AsGeoJSON.html)
+  * [ST_Transform](http://postgis.net/docs/ST_Transform.html)
 
-- [Open Street Maps](https://www.openstreetmap.org/)
 
-## My project
-
-Fill in (either in English, or in Slovak):
-
-**Application description**: `<fill in>`
-
-**Data source**: `<fill in>`
-
-**Technologies used**: `<fill in>`
+<sub><sub><sub><sub>Note:
+Model for this project can be done better (in order to use more GIS function, it's done like it is)<sub><sub><sub>
