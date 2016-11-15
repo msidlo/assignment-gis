@@ -69,6 +69,9 @@ class MapController < ApplicationController
                 and year = '#{params[:year]}'
                 and ST_Contains((select * from region),d.way)
               ), hospitals as(
+                select name, ST_Transform(way,4326) as way from planet_osm_polygon
+                where amenity = 'hospital'
+                union
                 select name, ST_Transform(way,4326) as way from planet_osm_point
                 where amenity = 'hospital'
               )
