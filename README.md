@@ -1,7 +1,7 @@
 # PDT
 School project for database class, which display population, unemployment and average wage, deaths rate and hospitals in districts in Slovak republic (2011-2015).
 
-![Preview](https://github.com/msidlo/pdt/tree/master/public/preview.png)
+![Preview](/public/preview.png)
 
 <sub><sub>(each option can be executed within regions or whole country, years 2011-2015, population is only 2015)<sub>:<sub>
 
